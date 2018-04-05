@@ -6,7 +6,7 @@
 	<title>Blockbuster game for webdev course</title>
 	<style>
 		* {padding: 0; margin: 0;}
-		canvas {background: #eee; display: block; margin: 0 auto;}
+		canvas {background: #68829E; display: block; margin: 0 auto;}
 	</style>
 </head>
 
@@ -52,7 +52,7 @@ var gamestate = 0;
 
 
 
-// called when the game starts, doesn't matter if it's the first or the nth time
+// Settings, ini
 function GameStart()
 {	
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -135,15 +135,15 @@ canvas.addEventListener('click', function(evt) {
 
 ctx.beginPath();
 ctx.rect(canvas.width/2-150, canvas.height/2-60, 350, 120); 
-ctx.fillStyle = 'green'; 
+ctx.fillStyle = '#598234'; 
 ctx.fillRect(canvas.width/2,canvas.height/2,32,32);
 ctx.fill(); 
 ctx.lineWidth = 2;
-ctx.strokeStyle = 'Blue'; 
+ctx.strokeStyle = 'Green'; 
 ctx.stroke();
 ctx.closePath();
 ctx.font = '40pt Times New Roman';
-ctx.fillStyle = 'Red';
+ctx.fillStyle = 'White';
 ctx.fillText('Start the game', canvas.width/2-130, canvas.height/2+10);
 
 // END
@@ -166,7 +166,7 @@ function EndGame()
 	ctx.stroke();
 	ctx.closePath();
 	ctx.font = '40pt Times New Roman';
-	ctx.fillStyle = 'Red';
+	ctx.fillStyle = 'White';
 	ctx.fillText('Play again!', canvas.width/2-100, canvas.height/2+10);
 	
 	ctx.font = '20pt Times New Roman';
@@ -251,15 +251,9 @@ function drawBall()
 	}
     ctx.beginPath();
     ctx.arc(x, y, ballRadius, 0, Math.PI*2);
-	if (dy > 0)
-	{
-		ctx.fillStyle = "Tomato";
-	}
-	else
-	{
-		ctx.fillstyle = "Blue";
-	}
-   
+
+	
+	ctx.fillStyle = "Tomato";
     ctx.fill();
     ctx.closePath();
 }
@@ -288,7 +282,7 @@ function drawBricks()
 				  bricks[c][r].y = brickY;
 				  ctx.beginPath();
 				  ctx.rect(brickX, brickY, brickWidth, brickHeight);
-				  ctx.fillStyle = "#0095DD";
+				  ctx.fillStyle = "#AEBD38";
 				  ctx.fill();
 				  ctx.closePath();
 			}
@@ -299,14 +293,14 @@ function drawBricks()
 function drawScore()
 {
 	ctx.font = "20px Times New Roman";
-	ctx.fillStyle = "#0095DD";
+	ctx.fillStyle = "Yellow";
 	ctx.fillText("Score: "+score, 8, 20);
 }
 
 function drawLives() 
 {
 	ctx.font = "20px Times New Roman";
-	ctx.fillStyle = "#0095DD";
+	ctx.fillStyle = "Yellow";
 	ctx.fillText("Lives: "+lives, 160, 20);
 }
 
@@ -399,21 +393,7 @@ function collisionDetection()
 				var bricky;
 				brickx = b.x+brickWidth/2;
 				bricky = b.y+brickHeight/2;
-				
-				if (brickx > x)
-				{
-					which_x_side = 1;
-				}else{
-					which_x_side = 2;
-				}
-				
-				if (bricky > y)
-				{
-					which_y_side = 1;
-				}else{
-					which_y_side = 2;
-				}
-				
+			
 				var xdistancefromcenter;
 				var ydistancefromcenter;
 				
@@ -426,7 +406,7 @@ function collisionDetection()
 				
 				if(xdistancefromcenter < brickWidth/2 && ydistancefromcenter < brickHeight/2)
 				{
-					if (BallImmunity == 0)
+										if (BallImmunity == 0)
 					{
 						if (dx === 0)
 						{
@@ -521,7 +501,6 @@ function collisionDetection()
 								}
 							}
 						}
-
 						b.status = 0;
 						score += 1000;
 						destroyed++;
