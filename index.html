@@ -408,13 +408,98 @@ function collisionDetection()
 				{
 					if (BallImmunity == 0)
 					{
-						if (xdistancefromcenter < ydistancefromcenter)
+						if (dx === 0)
 						{
 							dy = -dy;
 						}
-						else
+						else if (dy > 0 && dx > 0)
 						{
-							dx = -dx;
+							if (which_y_side === 2)
+							{
+								dx = -dx;
+							}
+							else
+							{
+								if (which_x_side === 2)
+								{
+									dy = -dy;
+								}
+								else if (xdistancefromcenter < ydistancefromcenter)
+								{
+									dy = -dy;
+								}
+								else
+								{
+									dx = -dx;
+								}
+							}
+						}
+						else if (dy > 0 && dx < 0)
+						{
+							if (which_y_side === 2)
+							{
+								dx = -dx;
+							}
+							else
+							{
+								if (which_x_side === 1)
+								{
+									dy = -dy;
+								}
+								else if (xdistancefromcenter < ydistancefromcenter)
+								{
+									dy = -dy;
+								}
+								else
+								{
+									dx = -dx;
+								}
+							}
+						}
+						else if (dy < 0 && dx > 0)
+						{
+							if (which_y_side === 1)
+							{
+								dx = -dx;
+							}
+							else
+							{
+								if (which_x_side === 2)
+								{
+									dy = -dy;
+								}
+								else if (xdistancefromcenter < ydistancefromcenter)
+								{
+									dy = -dy;
+								}
+								else
+								{
+									dx = -dx;
+								}
+							}
+						}
+					
+						else if (dy < 0 && dx < 0)
+						{
+							if (which_y_side === 1)
+							{
+								dx = -dx;
+							}
+							else
+							{
+								if (which_x_side === 1)
+								{
+									dy = -dy;
+								}
+								else if (xdistancefromcenter < ydistancefromcenter)
+								{
+									dy = -dy;
+								}
+								else
+								{
+									dx = -dx;
+								}
+							}
 						}
 						b.status = 0;
 						score += 1000;
