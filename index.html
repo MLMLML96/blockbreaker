@@ -1,14 +1,13 @@
-
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8" />
+<!-- saved from url=(0067)https://cdn.rawgit.com/MatiasLumio/blockbreaker/2b5d09e8/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
 	<title>Blockbuster game for webdev course</title>
 	<style>
 		* {padding: 0; margin: 0;}
 		canvas {background: #68829E; display: block; margin: 0 auto;}
 	</style>
-</head>
+<style></style><style>@media print {#ghostery-purple-box {display:none !important}}</style></head>
 
 <body>
 
@@ -197,6 +196,11 @@ function EndGame()
 	ctx.font = '20pt Times New Roman';
 	ctx.fillStyle = 'Red';
 	ctx.fillText('Final score: '+endscore, canvas.width/2-120, canvas.height/2-100);
+	
+	var message = {
+	messageType: "SCORE",
+	score: endscore
+	};
 	window.cancelAnimationFrame();
 }
 
@@ -527,3 +531,4 @@ function collisionDetection()
 }
 
 </script>
+</body></html>
