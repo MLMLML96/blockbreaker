@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0067)https://cdn.rawgit.com/MatiasLumio/blockbreaker/2b5d09e8/index.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	
 	<title>Blockbuster game for webdev course</title>
@@ -201,6 +200,7 @@ function EndGame()
 	messageType: "SCORE",
 	score: endscore
 	};
+	window.parent.postMessage(message, "*");
 	window.cancelAnimationFrame();
 }
 
