@@ -195,6 +195,11 @@ function EndGame()
 	ctx.font = '20pt Times New Roman';
 	ctx.fillStyle = 'Red';
 	ctx.fillText('Final score: '+endscore, canvas.width/2-120, canvas.height/2-100);
+	var endMessage = {
+	messageType: "SCORE",
+	score: endscore
+	};
+	window.parent.postMessage(endMessage, "*");
 	window.cancelAnimationFrame();
 }
 
