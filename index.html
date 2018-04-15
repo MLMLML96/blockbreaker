@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- saved from url=(0067)https://cdn.rawgit.com/MatiasLumio/blockbreaker/2b5d09e8/index.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	
 	<title>Blockbuster game for webdev course</title>
@@ -6,11 +7,11 @@
 		* {padding: 0; margin: 0;}
 		canvas {background: #68829E; display: block; margin: 0 auto;}
 	</style>
-<style></style><style>@media print {#ghostery-purple-box {display:none !important}}</style></head>
+<style></style></head>
 
 <body>
 
-<canvas id="Canvas" width="960" height="640"></canvas>
+<canvas id="Canvas" width="640" height="480"></canvas>
 
 <script>
 
@@ -56,15 +57,15 @@ function GameStart()
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	// ball variables here
 
-	dx = 0;
+	dx = 0.01;
 	dy = 0;
 	ballRadius = 7;
 	x = canvas.width/2;
 	y = canvas.height/2;
 
 	// paddle variables here
-	paddleHeight = 10;
-	paddleWidth = 125;
+	paddleHeight = 6;
+	paddleWidth = 80;
 	paddleX = (canvas.width-paddleWidth)/2;
 	rightbutton = false;
 	leftbutton = false;
@@ -74,13 +75,13 @@ function GameStart()
 	document.addEventListener("mousemove", mouseMoveHandler, false);
 
 	// destroyable blockfields here
-	brickRowCount = 6;
+	brickRowCount = 4;
 	brickColumnCount = 20;
-	brickWidth = 45;
-	brickHeight = 45;
+	brickWidth = 30;
+	brickHeight = 30;
 	brickPadding = 0;
 	brickOffsetTop = 30;
-	brickOffsetLeft = 30;
+	brickOffsetLeft = 20;
 	bricks=[];
 		
 	for(var c=0; c<brickColumnCount; c++) 
@@ -195,12 +196,6 @@ function EndGame()
 	ctx.font = '20pt Times New Roman';
 	ctx.fillStyle = 'Red';
 	ctx.fillText('Final score: '+endscore, canvas.width/2-120, canvas.height/2-100);
-	
-	var message = {
-	messageType: "SCORE",
-	score: endscore
-	};
-	window.parent.postMessage(message, "*");
 	window.cancelAnimationFrame();
 }
 
@@ -242,7 +237,7 @@ function drawBall()
 			{
 				x = canvas.width/2;
 				y = canvas.height/2;
-				dx = 0;
+				dx = 0.01;
 				dy = 0;
 				paddleX = (canvas.width-paddleWidth)/2;
 			}
