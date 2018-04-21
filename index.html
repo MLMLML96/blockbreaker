@@ -197,7 +197,7 @@ function EndGame()
 	ctx.fillText('Final score: '+endscore, canvas.width/2-120, canvas.height/2-100);
 	var endMessage = {
 	messageType: "SCORE",
-	score: score
+	score: endscore
 	};
 	window.parent.postMessage(endMessage, "*");
 	window.cancelAnimationFrame();
